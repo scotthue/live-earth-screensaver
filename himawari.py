@@ -76,7 +76,7 @@ height = 550
 tz = pytz.timezone('UTC')
 
 # they don't get uploaded immediately. 40 minutes is a conservative delay.
-time = datetime.now(tz) - timedelta(minutes=400)
+time = datetime.now(tz) - timedelta(minutes=960)
 print("Fetching image for time: " + datetime.strftime(time, "%Y-%m-%d %H:%M:%S"))
 # set these appropriately for yourself
 # using a UUID just so the OS sees a new filename each time it goes to change
