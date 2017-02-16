@@ -23,9 +23,12 @@ Inspired by [someone awesome on Reddit](https://www.reddit.com/r/programming/com
 * Default OS X `ping` (if you have something else, you will have to update the script)
 
 ### Crontab
-If your crontab does not already have it, add these two lines to the beginning:
-`SHELL=/bin/sh`
-`PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin`
+Add this to the beginning your crontab (with `crontab -e`), updating the path of the script and python path as needed:
+```shell
+SHELL=/bin/sh
+PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 
-Also add this line with the correct project path and python path for your system.
-``*/10 * * * * cd ~/git-projects/live-earth-screensaver/ && /usr/bin/python himawari.py >out.log 2>err.log`
+*/10 * * * * cd ~/git-projects/live-earth-screensaver/ && /usr/bin/python himawari.py >out.log 2>err.log
+```
+
+If your crontab already has `SHELL` and `PATH` defined, update them as appropriate.
