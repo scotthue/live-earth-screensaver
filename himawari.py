@@ -32,7 +32,7 @@ def ping():
         matcher = re.compile("round-trip min/avg/max/stddev = (\d+.\d+)/(\d+.\d+)/(\d+.\d+)/(\d+.\d+)")
         return float(matcher.search(ping_out).group(1))
     except Exception as ex:
-        print "Problem with internet connection. Quitting..."
+        print "Problem with internet connection or ping. Quitting..."
         os._exit(1)
 
 ping = ping()
@@ -48,12 +48,12 @@ def speedtest():
     import json
     import subprocess
     try:
-        speedtest = subprocess.check_output("speedtest-cli --json", shell=True)   
+        speedtest = subprocess.check_output("speedtest-cli --json", shell=True)
         data = json.loads(speedtest)
         return data["download"]
     except Exception as ex:
         print "Problem with speedtest. Quitting..."
-        os._exit(1) 
+        os._exit(1)
 
 speed = speedtest()
 
@@ -82,7 +82,7 @@ print("Fetching image for time: " + datetime.strftime(time, "%Y-%m-%d %H:%M:%S")
 # using a UUID just so the OS sees a new filename each time it goes to change
 #   the desktop image. if it's always the same name, it won't change
 tmp = script_dir + '/tmp.png'
-out = script_dir + '/desktop-%s.png' % (str(uuid.uuid4()))
+out = script_dir + '/images/desktop-%s.png' % (str(uuid.uuid4()))
 
 
 base = 'http://himawari8.nict.go.jp/img/D531106/%sd/550' % (scale)
@@ -116,11 +116,14 @@ def fetch_and_set():
     png.save(tmp, 'PNG')
 
     # clear out the old images in this folder so the OS picks the right one
+    os.system("touch " + script_dir + "/images/demo.txt")
     os.system("rm " + script_dir + "/images/*")
 
     # now move in the new image. doing it like this because writing the image
     # takes a while, so it's better to make it a (semi-) atomic swap
+    print "Moving image into output directiory..."
     os.system("mv %s %s" % (tmp, out))
+    print "Done."
 
 
 try:
