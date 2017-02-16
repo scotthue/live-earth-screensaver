@@ -28,4 +28,4 @@ If your crontab does not already have it, add these two lines to the beginning:
 `PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin`
 
 Also add this line with the correct project path and python path for your system.
-``*/10 * * * * cd ~/git-projects/live-earth-desktop/ && /usr/bin/python himawari.py >out.log 2>err.log`
+``*/10 * * * * cd ~/git-projects/live-earth-screensaver/ && /usr/bin/python himawari.py >out.log 2>err.log`
