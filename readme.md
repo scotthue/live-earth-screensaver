@@ -8,8 +8,10 @@ Inspired by [someone awesome on Reddit](https://www.reddit.com/r/programming/com
 
 ## Instructions
 
-1. Clone this repo
-2. Install dependencies as needed (see below)
+1. Clone this repo and enter directory: `git clone https://github.com/scotthue/live-earth-screensaver.git && cd live-earth-screensaver`
+2. Install dependencies as needed (see below), sudo may be require for some or all
+3. Make output directory: `mkdir images`
+3. Create blank log files: `touch out.log err.log`
 4. Try the Python script by running `python himawari.py` just to make sure everything's kosher. It should download an image.
 5. Edit your crontab (see below)
 7. Go to OS X Preferences > Desktop and Screen Saver and set your screensaver to rotate through the images contained in the `images` directory that you're writing these images to (whatever directory you made `out` point to).
@@ -17,13 +19,14 @@ Inspired by [someone awesome on Reddit](https://www.reddit.com/r/programming/com
 
 ### Dependencies
 * Python 2.7 or greater.
+* PIP: `sudo easy_install pip`
 * PIL or Pillow: `pip install Pillow`
 * Requests module: `pip install requests`
 * Speedtest-cli: `pip install speedtest-cli`
 * Default OS X `ping` (if you have something else, you will have to update the script)
 
 ### Crontab
-Add this to the beginning your crontab (with `crontab -e`), updating the path of the script and python path as needed:
+Add this to the beginning your crontab (with `crontab -e`), *updating the path of the script and python path as needed*:
 ```shell
 SHELL=/bin/sh
 PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
