@@ -26,7 +26,7 @@ Inspired by [someone awesome on Reddit](https://www.reddit.com/r/programming/com
 * Default OS X `ping` (if you have something else, you will have to update the script)
 
 ### Crontab
-Add this to the beginning your crontab (with `crontab -e`), *updating the path of the script and python path as needed*:
+Add this to the beginning your crontab (with `crontab -e`), **updating the path of the script and python path as needed**:
 ```shell
 SHELL=/bin/sh
 PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
